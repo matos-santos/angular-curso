@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {FuncionarioService, Funcionarios} from '../funcionario.service'
+import { Funcionarios} from '../../funcionarios';
+import { FuncionarioService } from '../../services/funcionario.service';
 import { FuncionarioNewModalComponent } from '../funcionario-new-modal/funcionario-new-modal.component';
 import { FuncionarioEditModalComponent } from '../funcionario-edit-modal/funcionario-edit-modal.component';
 import { FuncionarioDeleteModalComponent } from '../funcionario-delete-modal/funcionario-delete-modal.component';

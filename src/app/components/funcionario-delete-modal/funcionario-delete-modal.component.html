@@ -1,0 +1,14 @@
+<!-- Modal -->
+<app-modal>
+  <h5 modal-title class="modal-title">Exclusão de Funcionario</h5>
+
+  <div modal-body class="container">
+    <div class="row">
+      <h3>Deseja excluir o <strong>{{funcionario?.name}}</strong> definitivamente?</h3>
+    </div>
+  </div>
+  <div modal-footer>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+    <button type="submit" class="btn btn-danger" (click)="excluir()">Excluir</button>
+  </div>
+</app-modal>

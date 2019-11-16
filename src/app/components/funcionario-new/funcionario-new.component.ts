@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import {FuncionarioService, Funcionarios} from '../funcionario.service'
+import {Funcionarios} from '../../funcionarios';
+import { FuncionarioService } from '../../services/funcionario.service';
 
 @Component({
   selector: 'funcionario-new',

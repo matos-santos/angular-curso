@@ -1,0 +1,26 @@
+<!-- Modal -->
+<form (submit)="addFuncionario($event)" >
+  <app-modal>
+    <h5 modal-title class="modal-title">Cadastro de Funcionario</h5>
+
+    <div class="container" modal-body>
+      <div class="row">
+        <label>Nome</label><br>
+        <input type="text" name="Nome" class="form-control" [(ngModel)]="funcionario.name"/>
+      </div>
+      <div class="row">
+        <label>Salario</label><br>
+        <input type="text" name="salario" class="form-control" [(ngModel)]="funcionario.salario"/>
+      </div>
+      <div class="row" *ngIf="funcionario.salario >= 6000">
+        <label>Bonus</label><br>
+        <input type="text" name="bonus" class="form-control" [(ngModel)]="funcionario.bonus"/>
+      </div>
+    </div>
+    <div modal-footer>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+  </app-modal>
+
+</form>
