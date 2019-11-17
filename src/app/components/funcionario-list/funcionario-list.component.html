@@ -1,0 +1,40 @@
+<div class="container">
+  <app-alert-success [hidden]="!funcionarioNovo">
+    <p >O funcionario {{ funcionario?.name }} foi cadastrado com sucesso</p>
+  </app-alert-success>
+  <div class="row">
+    <h1>Empregados</h1>
+  </div>
+  <div class="row">
+    <button type="button" class="btn btn-primary" (click)="show()">
+      Novo
+    </button>
+  </div>
+  <div class="row">
+    {{data | date: 'dd/MM/yyyy HH:mm:ss'}}
+    <table class="table table-striped">
+      <thead>
+        <th>Nome</th>
+        <th>Salario</th>
+        <th>Bonus</th>
+        <th>Ações</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of funcionarioService.funcionarios; let i = index;" [id]="'tr'+i">
+          <td>{{item.name | uppercase}}</td>
+          <!-- <td [style.color]="getSalarioColor(item)">{{item.salario}}</td> -->
+          <!-- <td [ngClass]="getSalario2(item)">{{item.salario}}</td> -->
+          <td [salarioCor]="item.salario">{{item.salario | currency:'R$ ' }}</td>
+          <td >{{item.bonus}}</td>
+          <td >
+            <a href="javascript: void(0)" (click)="openModalEdit(item)">Editar</a> |
+            <a href="javascript: void(0)" (click)="openModalDelete(item)">Excluir</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<funcionario-new-modal (onsubmit)="cadastroNovo($event)"></funcionario-new-modal>
+<funcionario-edit-modal [funcionario]="funcionarioEdit" (onedit)="onEdit($event)"></funcionario-edit-modal>
+<funcionario-delete-modal [funcionario]="funcionarioDelete" (ondelete)="onDelete($event)"></funcionario-delete-modal>

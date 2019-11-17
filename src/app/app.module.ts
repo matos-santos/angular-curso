@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FuncionarioListComponent } from './funcionario-list/funcionario-list.component';
-import { FuncionarioNewComponent } from './funcionario-new/funcionario-new.component';
-import { SalarioCorDirective } from './salario-cor.directive';
-import { FuncionarioNewModalComponent } from './funcionario-new-modal/funcionario-new-modal.component';
-import { AlertSuccessComponent } from './alert-success/alert-success.component';
-import { FuncionarioEditModalComponent } from './funcionario-edit-modal/funcionario-edit-modal.component';
-import { FuncionarioDeleteModalComponent } from './funcionario-delete-modal/funcionario-delete-modal.component';
+import { FuncionarioListComponent } from './components/funcionario-list/funcionario-list.component';
+import { FuncionarioNewComponent } from './components/funcionario-new/funcionario-new.component';
+import { SalarioCorDirective } from './directives/salario-cor.directive';
+import { FuncionarioNewModalComponent } from './components/funcionario-new-modal/funcionario-new-modal.component';
+import { AlertSuccessComponent } from './components/alert-success/alert-success.component';
+import { FuncionarioEditModalComponent } from './components/funcionario-edit-modal/funcionario-edit-modal.component';
+import { FuncionarioDeleteModalComponent } from './components/funcionario-delete-modal/funcionario-delete-modal.component';
+import { ModalComponent } from './shared/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FuncionarioDeleteModalComponent } from './funcionario-delete-modal/func
     FuncionarioNewModalComponent,
     AlertSuccessComponent,
     FuncionarioEditModalComponent,
-    FuncionarioDeleteModalComponent
+    FuncionarioDeleteModalComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

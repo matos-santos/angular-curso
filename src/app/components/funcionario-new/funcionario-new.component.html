@@ -1,0 +1,15 @@
+<label>Nome</label><br>
+<input type="text" [(ngModel)]="funcionario.name"/>
+<br>
+<label>Salario</label><br>
+<input type="text" [(ngModel)]="funcionario.salario"/>
+<br>
+<div *ngIf="funcionario.salario >= 6000">
+    <label>Bonus</label><br>
+    <input type="text" [(ngModel)]="funcionario.bonus"/>
+    <br>
+</div>
+
+<p >{{salario}}</p>
+
+<button type="button" (click)="addFuncionario()">Adicionar</button>
