@@ -4,16 +4,36 @@ declare const $;
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  template: `
+  <div class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <ng-content select="[modal-title]"></ng-content>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ng-content select="[modal-body]"></ng-content>
+      </div>
+      <div class="modal-footer">
+        <ng-content select="[modal-footer]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>`,
+  styles: []
 })
 export class ModalComponent implements OnInit {
 
+  // tslint:disable-next-line: no-output-on-prefix
   @Output()
-  onHidden: EventEmitter<any> = new EventEmitter<any>();
+  onHidden: EventEmitter<any> = new EventEmitter();
 
+  // tslint:disable-next-line: no-output-on-prefix
   @Output()
-  onShow: EventEmitter<any> = new EventEmitter<any>();
+  onShow: EventEmitter<any> = new EventEmitter();
 
   constructor(private element: ElementRef) { }
 
@@ -27,16 +47,16 @@ export class ModalComponent implements OnInit {
     });
   }
 
-  private get divModal(): HTMLElement {
-    const nativeElement: HTMLElement = this.element.nativeElement;
-    return nativeElement.firstChild as HTMLElement;
-  }
-
   show() {
     $(this.divModal).modal('show');
   }
 
   hide() {
     $(this.divModal).modal('hide');
+  }
+
+  private get divModal(): HTMLElement {
+    const nativeElement: HTMLElement = this.element.nativeElement;
+    return nativeElement.firstChild as HTMLElement;
   }
 }

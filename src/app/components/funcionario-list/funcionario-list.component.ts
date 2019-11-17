@@ -36,15 +36,6 @@ export class FuncionarioListComponent implements OnInit {
     this.funcionario = e;
     this.funcionarioNovo = true;
   }
-  getSalarioColor(item) {
-    return item.salario > 20000 ? 'green' : null;
-  }
-  getSalario2(item) {
-    if (item.salario >= 500) {
-      return 'salario-grande';
-    }
-    return 'salario-pequeno';
-  }
 
   openModalEdit(item) {
     this.funcionarioEditModal.funcionario = item;

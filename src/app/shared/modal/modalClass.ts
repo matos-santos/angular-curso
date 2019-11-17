@@ -5,19 +5,13 @@ export class ModalClass implements OnInit {
   @ViewChild(ModalComponent, {static: false})
   modalComponent: ModalComponent;
 
+  // tslint:disable-next-line: no-output-on-prefix
   @Output()
-  onHidden: EventEmitter<any> = new EventEmitter<any>();
+  onHidden: EventEmitter<any> = new EventEmitter();
 
+  // tslint:disable-next-line: no-output-on-prefix
   @Output()
-  onShow: EventEmitter<any> = new EventEmitter<any>();
-
-  show() {
-    this.modalComponent.show();
-  }
-
-  hide() {
-    this.modalComponent.hide();
-  }
+  onShow: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
     this.modalComponent.onHidden.subscribe(e => {
@@ -28,4 +22,13 @@ export class ModalClass implements OnInit {
       this.onShow.emit(e);
     });
   }
+
+  show() {
+    this.modalComponent.show();
+  }
+
+  hide() {
+    this.modalComponent.hide();
+  }
+
 }

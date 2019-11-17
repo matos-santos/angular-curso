@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Funcionarios } from '../../funcionarios';
-import { ModalClass } from 'src/app/shared/modal/modalClass';
+import { ModalClass } from '../../shared/modal/modalClass';
 
 declare const $;
 @Component({
@@ -22,7 +22,6 @@ export class FuncionarioEditModalComponent extends ModalClass implements OnInit 
 
   ngOnInit() {
   }
-
 
   addFuncionario() {
     const copy = Object.assign({}, this.funcionario);

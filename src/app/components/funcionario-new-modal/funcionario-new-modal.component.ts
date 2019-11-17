@@ -1,9 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Funcionarios } from '../../funcionarios';
 import { FuncionarioService } from '../../services/funcionario.service';
-import { ModalClass } from 'src/app/shared/modal/modalClass';
+import { ModalClass } from '../../shared/modal/modalClass';
 
 declare const $;
+
 @Component({
   selector: 'funcionario-new-modal',
   templateUrl: './funcionario-new-modal.component.html',
@@ -15,6 +16,10 @@ export class FuncionarioNewModalComponent extends ModalClass implements OnInit {
     salario: 0,
     bonus: 0,
   };
+
+  @ViewChild('inputName', {static: true})
+  inputName: ElementRef;
+
   @Output()
   onsubmit: EventEmitter<Funcionarios> = new EventEmitter<Funcionarios>();
 
@@ -24,6 +29,12 @@ export class FuncionarioNewModalComponent extends ModalClass implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+    console.log('this', this)
+    this.onShow.subscribe(event => {
+      console.log('e', event)
+      console.log(this.inputName)
+      this.inputName.nativeElement.focus();
+    });
   }
 
   addFuncionario() {

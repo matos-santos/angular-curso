@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Funcionarios } from '../../funcionarios';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { ModalClass } from 'src/app/shared/modal/modalClass';
@@ -19,7 +19,7 @@ export class FuncionarioDeleteModalComponent extends ModalClass implements OnIni
   @Output()
   ondelete: EventEmitter<Funcionarios> = new EventEmitter<Funcionarios>();
 
-  constructor(private element: ElementRef, private funcionariosService: FuncionarioService) {
+  constructor(private funcionariosService: FuncionarioService) {
     super();
    }
 
